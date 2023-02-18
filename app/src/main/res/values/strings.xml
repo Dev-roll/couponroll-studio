@@ -1,3 +1,21 @@
 <resources>
+    <!-- CTT -->
     <string name="app_name">CouponRoll Studio</string>
+
+    <!-- Home -->
+    <string name="home_title">CouponRoll Studio</string>
+    <string name="add_button">タスクを追加</string>
+
+    <!-- Capture -->
+    <string name="capture_title">タスクを追加</string>
+
+    <!-- Entry -->
+    <string name="task_entry_title">説明を追加</string>
+    <string name="task_title_req">タイトル</string>
+    <string name="task_description_req">詳細</string>
+    <string name="save_action">保存</string>
+
+    <!-- Other -->
+    <string name="back_button">戻る</string>
+    <string name="no_item_description">まだタスクは追加されていません</string>
 </resources>
