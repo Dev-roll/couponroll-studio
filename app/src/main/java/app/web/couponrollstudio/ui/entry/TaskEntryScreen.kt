@@ -101,6 +101,7 @@ fun TaskEntryBody(
                 Text(stringResource(R.string.save_action))
             }
         }
+        Text(text = uri)
         Image(
             modifier = Modifier.fillMaxSize(),
             painter = rememberAsyncImagePainter(uri),

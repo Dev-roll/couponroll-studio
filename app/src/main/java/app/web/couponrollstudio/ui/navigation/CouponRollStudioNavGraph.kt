@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import app.web.couponrollstudio.ui.capture.CaptureDestination
-import app.web.couponrollstudio.ui.capture.CaptureScreen
+import app.web.couponrollstudio.ui.capture.ScanQrcodeScreen
 import app.web.couponrollstudio.ui.entry.TaskEntryDestination
 import app.web.couponrollstudio.ui.entry.TaskEntryScreen
 import app.web.couponrollstudio.ui.home.HomeDestination
@@ -29,7 +29,7 @@ fun CouponRollStudioNavHost(
             )
         }
         composable(route = CaptureDestination.route) {
-            CaptureScreen(
+            ScanQrcodeScreen(
                 navController = navController,
                 navigateBack = { navController.popBackStack() },
                 onNavigateUp = { navController.navigateUp() },
