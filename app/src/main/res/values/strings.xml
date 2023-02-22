@@ -18,4 +18,8 @@
     <!-- Other -->
     <string name="back_button">戻る</string>
     <string name="no_item_description">まだタスクは追加されていません</string>
+    <string name="home_title_text">ダッシュボード</string>
+    <string name="home_icon_text">ダッシュボード</string>
+    <string name="qr_code_scan_icon_text">読み取り</string>
+    <string name="qr_code_scan_title_text">QRコードを読み取り</string>
 </resources>
