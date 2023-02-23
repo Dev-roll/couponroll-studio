@@ -33,7 +33,7 @@ import java.io.File
 import java.util.concurrent.Executors
 
 object CaptureDestination : NavigationDestination {
-    override val route = "capture"
+    override val route = "qr_code_scan"
     override val titleRes = R.string.capture_title
 }
 

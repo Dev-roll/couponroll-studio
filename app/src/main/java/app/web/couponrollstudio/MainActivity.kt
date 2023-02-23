@@ -26,12 +26,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        onBackPressedDispatcher.addCallback(callback)
-    }
-
-    private val callback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            return
-        }
     }
 }
