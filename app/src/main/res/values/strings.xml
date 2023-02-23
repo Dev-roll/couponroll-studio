@@ -22,4 +22,10 @@
     <string name="home_icon_text">ダッシュボード</string>
     <string name="qr_code_scan_icon_text">読み取り</string>
     <string name="qr_code_scan_title_text">QRコードを読み取り</string>
+    <string name="store_top_title">ストアトップ</string>
+    <string name="store_coupons_title">クーポン</string>
+    <string name="store_details_title">詳細</string>
+    <string name="store_analitics_title">分析</string>
+    <string name="store_settings_title">設定</string>
+    <string name="edit_profile">プロフィールを編集</string>
 </resources>
