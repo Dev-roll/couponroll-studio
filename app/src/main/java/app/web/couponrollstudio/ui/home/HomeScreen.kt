@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import app.web.couponrollstudio.R
 import app.web.couponrollstudio.ui.components.customTabIndicatorOffset
 import app.web.couponrollstudio.ui.navigation.NavigationDestination
@@ -34,8 +35,7 @@ object HomeDestination : NavigationDestination {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    navigateToCapture: () -> Unit,
-    navigateToTaskUpdate: (String) -> Unit,
+    navController: NavController,
     modifier: Modifier = Modifier,
     homeViewModel: HomeViewModel,
 ) {
@@ -44,7 +44,7 @@ fun HomeScreen(
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
-                onClick = navigateToCapture,
+                onClick = { navController.navigate("edit_coupons") },
                 containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier.navigationBarsPadding()
@@ -58,6 +58,7 @@ fun HomeScreen(
         },
     ) { innerPadding ->
         HomeBody(
+            navController = navController,
             onClick = homeViewModel::onClick,
             uiState = uiState,
             modifier = modifier.padding(innerPadding)
@@ -67,15 +68,17 @@ fun HomeScreen(
 
 @Composable
 private fun HomeBody(
+    navController: NavController,
     onClick: () -> Unit,
     uiState: HomeViewModel.UiState,
     modifier: Modifier = Modifier
 ) {
-    TabLayout(onClick = onClick, uiState = uiState)
+    TabLayout(onClick = onClick, uiState = uiState, navController = navController)
 }
 
 @Composable
 fun TabLayout(
+    navController: NavController,
     onClick: () -> Unit,
     uiState: HomeViewModel.UiState
 ) {
@@ -129,10 +132,13 @@ fun TabLayout(
                 )
             }
         }
-        Row(modifier = Modifier.padding(end = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            modifier = Modifier.padding(end = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Spacer(modifier = Modifier.weight(1f))
             TextButton(
-                onClick = { },
+                onClick = { navController.navigate("edit_profiles") },
                 colors =
                 ButtonDefaults.textButtonColors(
                     containerColor = MaterialTheme.colorScheme.primary,
@@ -152,7 +158,10 @@ fun TabLayout(
                 }
             }
         }
-        Row(Modifier.padding(start = 16.dp, bottom = 8.dp, end = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            Modifier.padding(start = 16.dp, bottom = 8.dp, end = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Text(text = "Devroll", fontSize = 20.sp)
             Icon(
                 imageVector = Icons.Rounded.Person,
