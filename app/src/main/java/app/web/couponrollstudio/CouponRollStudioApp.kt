@@ -6,7 +6,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import app.web.couponrollstudio.ui.home.HomeViewModel
@@ -92,13 +91,6 @@ fun RowScope.CouponRollStudioNavigationBarItem(
         enabled = enabled,
         label = label,
         alwaysShowLabel = alwaysShowLabel,
-        colors = NavigationBarItemDefaults.colors(
-            selectedIconColor = CouponRollStudioNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = CouponRollStudioNavigationDefaults.navigationContentColor(),
-            selectedTextColor = CouponRollStudioNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = CouponRollStudioNavigationDefaults.navigationContentColor(),
-            indicatorColor = CouponRollStudioNavigationDefaults.navigationIndicatorColor(),
-        ),
     )
 }
 
@@ -114,19 +106,6 @@ fun CouponRollStudioNavigationBar(
 ) {
     NavigationBar(
         modifier = modifier,
-        contentColor = CouponRollStudioNavigationDefaults.navigationContentColor(),
-        tonalElevation = 0.dp,
         content = content,
     )
-}
-
-object CouponRollStudioNavigationDefaults {
-    @Composable
-    fun navigationContentColor() = MaterialTheme.colorScheme.onSurfaceVariant
-
-    @Composable
-    fun navigationSelectedItemColor() = MaterialTheme.colorScheme.onPrimaryContainer
-
-    @Composable
-    fun navigationIndicatorColor() = MaterialTheme.colorScheme.primaryContainer
 }
