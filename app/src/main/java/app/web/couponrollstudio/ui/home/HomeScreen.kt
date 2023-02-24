@@ -79,7 +79,7 @@ private fun HomeBody(
 @Composable
 fun TabLayout(
     navController: NavController,
-
+    onClick: () -> Unit,
     uiState: HomeViewModel.UiState
 ) {
 //    var selectedTabIndex by remember { mutableStateOf(0) }
