@@ -11,8 +11,6 @@ import app.web.couponrollstudio.ui.edit_coupons.EditCouponsDestination
 import app.web.couponrollstudio.ui.edit_coupons.EditCouponsScreen
 import app.web.couponrollstudio.ui.edit_profiles.EditProfilesDestination
 import app.web.couponrollstudio.ui.edit_profiles.EditProfilesScreen
-import app.web.couponrollstudio.ui.entry.TaskEntryDestination
-import app.web.couponrollstudio.ui.entry.TaskEntryScreen
 import app.web.couponrollstudio.ui.home.HomeDestination
 import app.web.couponrollstudio.ui.home.HomeScreen
 
@@ -46,18 +44,6 @@ fun CouponRollStudioNavHost(
         }
         composable(route = EditCouponsDestination.route) {
             EditCouponsScreen()
-        }
-        composable(route = TaskEntryDestination.route) {
-            val uri = it.arguments?.getString("uri") ?: ""
-            TaskEntryScreen(
-                navigateBack = { navController.popBackStack() },
-                onNavigateUp = { navController.navigateUp() },
-                navigateToHome = {
-                    navController.popBackStack()
-                    navController.popBackStack()
-                },
-                uri = uri
-            )
         }
     }
 }
