@@ -14,7 +14,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import app.web.couponrollstudio.R
 import app.web.couponrollstudio.model.Task
 import app.web.couponrollstudio.ui.AppViewModelProvider
@@ -36,9 +35,7 @@ fun HomeScreen(
     navigateToCapture: () -> Unit,
     navigateToTaskUpdate: (String) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
-    val homeUiState by viewModel.homeUiState.collectAsState()
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -56,10 +53,7 @@ fun HomeScreen(
         },
     ) { innerPadding ->
         HomeBody(
-            itemList = homeUiState.itemList,
             onTaskClick = navigateToTaskUpdate,
-            onTaskCheckedChange = viewModel::completeTask,
-            onTaskStarredChange = viewModel::starTask,
             modifier = modifier.padding(innerPadding)
         )
     }
@@ -67,10 +61,7 @@ fun HomeScreen(
 
 @Composable
 private fun HomeBody(
-    itemList: List<Task>,
     onTaskClick: (String) -> Unit,
-    onTaskCheckedChange: (Task, Boolean) -> Unit,
-    onTaskStarredChange: (Task, Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
     TabLayout()

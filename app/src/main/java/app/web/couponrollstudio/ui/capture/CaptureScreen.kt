@@ -15,11 +15,8 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import app.web.couponrollstudio.R
-import app.web.couponrollstudio.ui.AppViewModelProvider
-import app.web.couponrollstudio.ui.home.HomeViewModel
 import app.web.couponrollstudio.ui.navigation.NavigationDestination
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionStatus
@@ -46,7 +43,6 @@ fun ScanQrcodeScreen(
     navigateToTaskEntry: () -> Unit,
     modifier: Modifier = Modifier,
     canNavigateBack: Boolean = true,
-    viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory),
     onImageFile: (File) -> Unit = { },
     cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 ) {

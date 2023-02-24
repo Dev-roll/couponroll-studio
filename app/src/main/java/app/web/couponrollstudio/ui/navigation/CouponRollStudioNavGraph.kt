@@ -38,7 +38,7 @@ fun CouponRollStudioNavHost(
                 navController = navController,
                 navigateBack = { navController.popBackStack() },
                 onNavigateUp = { navController.navigateUp() },
-                navigateToTaskEntry = { navController.navigate(TaskEntryDestination.route) },
+                navigateToTaskEntry = { },
             )
         }
         composable(route = EditProfilesDestination.route) {
