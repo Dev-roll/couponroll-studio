@@ -9,12 +9,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import app.web.couponrollstudio.ui.home.HomeViewModel
 import app.web.couponrollstudio.ui.navigation.CouponRollStudioNavHost
 import app.web.couponrollstudio.ui.navigation.TopLevelDestination
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CouponRollStudioApp(appState: CouponRollStudioAppState = rememberCouponRollStudioAppState()) {
+fun CouponRollStudioApp(
+    appState: CouponRollStudioAppState = rememberCouponRollStudioAppState(),
+    homeViewModel: HomeViewModel
+) {
     Scaffold(
         bottomBar = {
             CouponRollStudioBottomBar(
@@ -31,7 +35,10 @@ fun CouponRollStudioApp(appState: CouponRollStudioAppState = rememberCouponRollS
                 .padding(padding),
         ) {
             Column(modifier = Modifier.fillMaxSize()) {
-                CouponRollStudioNavHost(navController = appState.navController)
+                CouponRollStudioNavHost(
+                    navController = appState.navController,
+                    homeViewModel = homeViewModel
+                )
             }
         }
     }

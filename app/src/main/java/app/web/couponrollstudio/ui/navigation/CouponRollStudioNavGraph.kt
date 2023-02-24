@@ -13,11 +13,13 @@ import app.web.couponrollstudio.ui.edit_profiles.EditProfilesDestination
 import app.web.couponrollstudio.ui.edit_profiles.EditProfilesScreen
 import app.web.couponrollstudio.ui.home.HomeDestination
 import app.web.couponrollstudio.ui.home.HomeScreen
+import app.web.couponrollstudio.ui.home.HomeViewModel
 
 @Composable
 fun CouponRollStudioNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
+    homeViewModel: HomeViewModel
 ) {
     NavHost(
         navController = navController,
@@ -29,6 +31,7 @@ fun CouponRollStudioNavHost(
             HomeScreen(
                 navigateToCapture = { navController.navigate(CaptureDestination.route) },
                 navigateToTaskUpdate = { navController.navigateUp() },
+                homeViewModel = homeViewModel,
             )
         }
         composable(route = CaptureDestination.route) {
