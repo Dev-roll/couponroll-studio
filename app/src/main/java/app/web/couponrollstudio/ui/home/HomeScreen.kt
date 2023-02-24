@@ -18,7 +18,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import app.web.couponrollstudio.R
 import app.web.couponrollstudio.model.Task
 import app.web.couponrollstudio.ui.AppViewModelProvider
-import app.web.couponrollstudio.ui.components.CouponRollStudioTopAppBar
 import app.web.couponrollstudio.ui.components.customTabIndicatorOffset
 import app.web.couponrollstudio.ui.navigation.NavigationDestination
 import app.web.couponrollstudio.ui.store_analitics.StoreAnaliticsScreen

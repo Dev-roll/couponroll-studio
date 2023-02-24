@@ -1,6 +1,7 @@
 package app.web.couponrollstudio.ui.components
 
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
@@ -15,7 +16,8 @@ fun CouponRollStudioTopAppBar(
     title: String,
     canNavigateBack: Boolean,
     modifier: Modifier = Modifier,
-    navigateUp: () -> Unit = {}
+    navigateUp: () -> Unit = {},
+    actions: @Composable RowScope.() -> Unit = {}
 ) {
     if (canNavigateBack) {
         TopAppBar(
@@ -28,9 +30,10 @@ fun CouponRollStudioTopAppBar(
                         contentDescription = stringResource(R.string.back_button)
                     )
                 }
-            }
+            },
+            actions = actions
         )
     } else {
-        TopAppBar(title = { Text(title) }, modifier = modifier)
+        TopAppBar(title = { Text(title) }, modifier = modifier, actions = actions)
     }
 }
