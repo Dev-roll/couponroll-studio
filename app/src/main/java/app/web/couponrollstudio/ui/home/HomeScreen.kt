@@ -33,7 +33,10 @@ fun HomeScreen(
     navigateToCapture: () -> Unit,
     navigateToTaskUpdate: (String) -> Unit,
     modifier: Modifier = Modifier,
+    homeViewModel: HomeViewModel,
 ) {
+    val uiState: HomeViewModel.UiState by homeViewModel.uiState
+
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -51,7 +54,8 @@ fun HomeScreen(
         },
     ) { innerPadding ->
         HomeBody(
-            onTaskClick = navigateToTaskUpdate,
+            onClick = homeViewModel::onClick,
+            uiState = uiState,
             modifier = modifier.padding(innerPadding)
         )
     }
@@ -59,15 +63,18 @@ fun HomeScreen(
 
 @Composable
 private fun HomeBody(
-    onTaskClick: (String) -> Unit,
+    onClick: () -> Unit,
+    uiState: HomeViewModel.UiState,
     modifier: Modifier = Modifier
 ) {
-    TabLayout()
-
+    TabLayout(onClick = onClick, uiState = uiState)
 }
 
 @Composable
-fun TabLayout() {
+fun TabLayout(
+    onClick: () -> Unit,
+    uiState: HomeViewModel.UiState
+) {
 //    var selectedTabIndex by remember { mutableStateOf(0) }
     var state by remember { mutableStateOf(0) }
     val titles = listOf(
@@ -95,7 +102,7 @@ fun TabLayout() {
             )
         }
         TextButton(
-            onClick = {},
+            onClick = { },
             colors =
             ButtonDefaults.textButtonColors(
                 containerColor = MaterialTheme.colorScheme.primary,
