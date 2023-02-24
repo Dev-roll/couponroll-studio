@@ -23,14 +23,13 @@ fun CouponRollStudioNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = EditCouponsDestination.route,
+        startDestination = HomeDestination.route,
 //        startDestination = HomeDestination.route,
         modifier = modifier
     ) {
         composable(route = HomeDestination.route) {
             HomeScreen(
-                navigateToCapture = { navController.navigate(CaptureDestination.route) },
-                navigateToTaskUpdate = { navController.navigateUp() },
+                navController = navController,
                 homeViewModel = homeViewModel,
             )
         }
@@ -43,10 +42,10 @@ fun CouponRollStudioNavHost(
             )
         }
         composable(route = EditProfilesDestination.route) {
-            EditProfilesScreen()
+            EditProfilesScreen(navController = navController)
         }
         composable(route = EditCouponsDestination.route) {
-            EditCouponsScreen()
+            EditCouponsScreen(navController = navController)
         }
     }
 }

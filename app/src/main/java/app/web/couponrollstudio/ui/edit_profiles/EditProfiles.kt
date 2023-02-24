@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import app.web.couponrollstudio.R
 import app.web.couponrollstudio.ui.components.CouponRollStudioTopAppBar
 import app.web.couponrollstudio.ui.navigation.NavigationDestination
@@ -23,6 +24,7 @@ object EditProfilesDestination : NavigationDestination {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditProfilesScreen(
+    navController: NavController,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -32,7 +34,7 @@ fun EditProfilesScreen(
                 canNavigateBack = false,
                 actions = {
                     TextButton(
-                        onClick = {}
+                        onClick = { navController.navigate("home") }
                     ) {
                         Text(text = "保存")
                     }

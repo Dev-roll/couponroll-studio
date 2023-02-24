@@ -15,6 +15,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import app.web.couponrollstudio.R
 import app.web.couponrollstudio.ui.components.CouponRollStudioTopAppBar
 import app.web.couponrollstudio.ui.navigation.NavigationDestination
@@ -27,6 +28,7 @@ object EditCouponsDestination : NavigationDestination {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditCouponsScreen(
+    navController: NavController,
     modifier: Modifier = Modifier,
 ) {
     Scaffold(
@@ -36,7 +38,7 @@ fun EditCouponsScreen(
                 canNavigateBack = false,
                 actions = {
                     TextButton(
-                        onClick = {}
+                        onClick = { navController.navigate("home") }
                     ) {
                         Text(text = "保存")
                     }
