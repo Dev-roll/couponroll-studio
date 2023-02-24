@@ -104,7 +104,7 @@ fun TabLayout(
             "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/91d27dfb-5f8d-4b9b-8368-747764a7af4c/Group_2608813.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T150855Z&X-Amz-Expires=86400&X-Amz-Signature=9238b824ab43139ba98345ad73827db8f659a37db2d5f613e3de63f2cfb9c825&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Group%25202608813.png%22&x-id=GetObject",
             "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a300c291-9d74-4e7e-b9d8-80684f9e6462/Group_2608819.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T150900Z&X-Amz-Expires=86400&X-Amz-Signature=b41ee48ac2bdf99e55e5c66b3236fb1f46cc9b83b4fc7371e5d749e2957f346d&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Group%25202608819.png%22&x-id=GetObject"
         )
-        Box(modifier = Modifier.height(160.dp)) {
+        Box(modifier = Modifier.height(150.dp)) {
             val painter8: Painter =
                 rememberAsyncImagePainter(imageUrls[8])
             val painter9: Painter =
@@ -117,7 +117,7 @@ fun TabLayout(
             )
             Column(
                 modifier = Modifier
-                    .offset(x = 16.dp, y = 100.dp)
+                    .offset(x = 12.dp, y = 100.dp)
             ) {
                 Image(
                     painter = painter9,
@@ -129,19 +129,7 @@ fun TabLayout(
                 )
             }
         }
-        Row(Modifier.padding(all = 16.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text(text = "Devroll", fontSize = 20.sp)
-            Icon(
-                imageVector = Icons.Rounded.Person,
-                contentDescription = null,
-                modifier = Modifier.padding(start = 8.dp),
-                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-            )
-            Text(
-                text = "1,000",
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                fontSize = 14.sp
-            )
+        Row(modifier = Modifier.padding(end = 16.dp), verticalAlignment = Alignment.CenterVertically) {
             Spacer(modifier = Modifier.weight(1f))
             TextButton(
                 onClick = { },
@@ -163,6 +151,20 @@ fun TabLayout(
                     )
                 }
             }
+        }
+        Row(Modifier.padding(start = 16.dp, bottom = 8.dp, end = 16.dp), verticalAlignment = Alignment.CenterVertically) {
+            Text(text = "Devroll", fontSize = 20.sp)
+            Icon(
+                imageVector = Icons.Rounded.Person,
+                contentDescription = null,
+                modifier = Modifier.padding(start = 8.dp),
+                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+            )
+            Text(
+                text = "1,000",
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                fontSize = 14.sp
+            )
         }
         CustomTabRow(
             tabs = titles,
