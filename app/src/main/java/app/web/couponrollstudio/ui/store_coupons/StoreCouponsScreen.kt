@@ -3,7 +3,6 @@ package app.web.couponrollstudio.ui.store_coupons
 import android.content.Context
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.R
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -16,20 +15,17 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import app.web.couponrollstudio.ui.components.CouponRollStudioTopAppBar
 import app.web.couponrollstudio.ui.theme.OffColor
 import app.web.couponrollstudio.ui.theme.StarOnColor
 import coil.compose.AsyncImage
@@ -40,7 +36,7 @@ import java.util.*
 
 @Composable
 fun StoreCouponsScreen() {
-    MyCouponsScreen(storeId = "1")
+    MyCouponsScreen(storeId = "2")
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -71,7 +67,7 @@ fun MyCouponsScreen(
             id = "2",
             storeId = "2",
             storeName = "Devroll Store2",
-            name = "10% off",
+            name = "クーポン",
             description = "10% off",
             creatorId = "2",
             createdAt = "2021-09-01 00:00:00",
@@ -88,8 +84,8 @@ fun MyCouponsScreen(
             id = "1",
             storeId = "1",
             storeName = "Devroll Store1",
-            name = "5% off",
-            description = "5% off",
+            name = "8% off クーポン",
+            description = "8% off",
             creatorId = "1",
             createdAt = "2021-09-01 00:00:00",
             updatedAt = "2021-09-01 00:00:00",
@@ -97,16 +93,16 @@ fun MyCouponsScreen(
             expiresAt = "2021-09-01 00:00:00",
             iconUrl = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0568de6a-ebf9-4173-b606-97001fdbc818/Group_2608808.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T150807Z&X-Amz-Expires=86400&X-Amz-Signature=7ae76fa59f8289f48f7699f0daf02bb4487a0ee072dec80aa561014aaa94dcc8&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Group%25202608808.png%22&x-id=GetObject",
             imgUrl = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/16320716-01fd-4c30-a3c9-ff2328e5f3d2/Group_2608814.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T150802Z&X-Amz-Expires=86400&X-Amz-Signature=d909a5d9535b921fbfcac1b1034e30c8db4461339deac72b3db6d5ea851f864c&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Group%25202608814.png%22&x-id=GetObject",
-            discount = 5,
+            discount = 8,
             isStarred = false,
-            isUsed = false,
+            isUsed = true,
         ),
         Coupon(
             id = "2",
             storeId = "2",
             storeName = "Devroll Store2",
-            name = "10% off",
-            description = "10% off",
+            name = "20% off",
+            description = "20% off",
             creatorId = "2",
             createdAt = "2021-09-01 00:00:00",
             updatedAt = "2021-09-01 00:00:00",
@@ -114,15 +110,15 @@ fun MyCouponsScreen(
             expiresAt = "2021-09-01 00:00:00",
             iconUrl = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a300c291-9d74-4e7e-b9d8-80684f9e6462/Group_2608819.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T150900Z&X-Amz-Expires=86400&X-Amz-Signature=b41ee48ac2bdf99e55e5c66b3236fb1f46cc9b83b4fc7371e5d749e2957f346d&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Group%25202608819.png%22&x-id=GetObject",
             imgUrl = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/91d27dfb-5f8d-4b9b-8368-747764a7af4c/Group_2608813.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T150855Z&X-Amz-Expires=86400&X-Amz-Signature=9238b824ab43139ba98345ad73827db8f659a37db2d5f613e3de63f2cfb9c825&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Group%25202608813.png%22&x-id=GetObject",
-            discount = 10,
+            discount = 20,
             isStarred = true,
-            isUsed = true,
+            isUsed = false,
         ),
         Coupon(
             id = "1",
             storeId = "1",
             storeName = "Devroll Store1",
-            name = "5% off",
+            name = "クーポン",
             description = "5% off",
             creatorId = "1",
             createdAt = "2021-09-01 00:00:00",
@@ -133,7 +129,7 @@ fun MyCouponsScreen(
             imgUrl = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/16320716-01fd-4c30-a3c9-ff2328e5f3d2/Group_2608814.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T150802Z&X-Amz-Expires=86400&X-Amz-Signature=d909a5d9535b921fbfcac1b1034e30c8db4461339deac72b3db6d5ea851f864c&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Group%25202608814.png%22&x-id=GetObject",
             discount = 5,
             isStarred = true,
-            isUsed = false,
+            isUsed = true,
         ),
         Coupon(
             id = "2",
@@ -266,7 +262,7 @@ fun CouponItem(
             isModalOpen = true
         }
         .background(
-            color = MaterialTheme.colorScheme.secondaryContainer,
+            color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = if (coupon.isUsed) 0.5f else 1f),
             shape = RoundedCornerShape(8.dp)
         ),
         contentAlignment = Alignment.CenterStart
@@ -411,8 +407,22 @@ fun CouponItem(
                         AsyncImage(
                             model = coupon.iconUrl,
                             contentDescription = null,
-                            modifier = Modifier.clip(CircleShape)
+                            modifier = Modifier.clip(CircleShape),
                         )
+                        if (coupon.isUsed) {
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier
+                                    .height(40.dp)
+                                    .width(40.dp)
+                                    .background(
+                                        color = MaterialTheme.colorScheme.secondaryContainer.copy(
+                                            alpha = 0.7f
+                                        ),
+                                        shape = RoundedCornerShape(40.dp)
+                                    )
+                            ) {}
+                        }
                     }
                     Column {
                         Text(
@@ -420,6 +430,7 @@ fun CouponItem(
                             fontWeight = FontWeight.Bold,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = if (coupon.isUsed) 0.5f else 1f),
                         )
                         Spacer(modifier = Modifier.height(2.dp))
                         Text(
@@ -427,18 +438,23 @@ fun CouponItem(
                             fontSize = 11.sp,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = if (coupon.isUsed) 0.5f else 1f),
                         )
                     }
                 }
-                Row(verticalAlignment = Alignment.Bottom) {
+                Row(
+                    verticalAlignment = Alignment.Bottom,
+                    horizontalArrangement = Arrangement.Center,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     val baseModifier = remember {
                         Modifier.alignByBaseline()
                     }
                     Text(
                         text = coupon.discount.toString(),
-                        fontWeight = FontWeight.Bold,
+                        fontWeight = if (coupon.isUsed) FontWeight.Medium else FontWeight.Bold,
                         fontSize = 50.sp,
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.tertiary.copy(alpha = if (coupon.isUsed) 0.5f else 1f),
                         modifier = baseModifier
                     )
                     Spacer(modifier = Modifier.width(6.dp))
@@ -446,7 +462,7 @@ fun CouponItem(
                         text = "%",
                         fontWeight = FontWeight.Medium,
                         fontSize = 32.sp,
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.tertiary.copy(alpha = if (coupon.isUsed) 0.5f else 1f),
                         modifier = baseModifier
                     )
                     Spacer(modifier = Modifier.width(10.dp))
@@ -454,7 +470,7 @@ fun CouponItem(
                         text = "OFF",
                         fontWeight = FontWeight.Medium,
                         fontSize = 24.sp,
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.tertiary.copy(alpha = if (coupon.isUsed) 0.5f else 1f),
                         modifier = baseModifier
                     )
                 }
@@ -476,6 +492,7 @@ fun CouponItem(
                             .padding(6.dp)
                             .clip(RoundedCornerShape(8.dp)),
                         contentScale = ContentScale.Crop,
+                        alpha = if (coupon.isUsed) 0.5f else 1f,
                     )
                 }
                 var isStarred by remember {
@@ -497,7 +514,12 @@ fun CouponItem(
                         .width(32.dp)
                         .absoluteOffset(x = 16.dp, y = 58.dp)
                         .background(
-                            color = MaterialTheme.colorScheme.secondaryContainer,
+                            color = if (coupon.isUsed)
+                                alphaBlend(
+                                    MaterialTheme.colorScheme.secondaryContainer,
+                                    MaterialTheme.colorScheme.background,
+                                    0.5f
+                                ) else MaterialTheme.colorScheme.secondaryContainer,
                             shape = RoundedCornerShape(32.dp)
                         )
                 ) {
@@ -598,4 +620,12 @@ private fun generateQRCode(text: String, context: Context): android.graphics.Bit
         }
     }
     return bmp
+}
+
+fun alphaBlend(color1: Color, color2: Color, alpha: Float): Color {
+    val r = color1.red * (1 - alpha) + color2.red * alpha
+    val g = color1.green * (1 - alpha) + color2.green * alpha
+    val b = color1.blue * (1 - alpha) + color2.blue * alpha
+    val a = color1.alpha * (1 - alpha) + color2.alpha * alpha
+    return Color(r, g, b, a)
 }
